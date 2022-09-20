@@ -1,0 +1,381 @@
+﻿@using System.Linq;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MainView.cshtml";
+    New_System.Reprositry.UnitOfWork unit
+        = new New_System.Reprositry.UnitOfWork();
+    var now_date = DateTime.Now;
+    var parts = unit.PartReprositry.GetAll()
+        .Where(s => s.Inser_Date.Value.Month.ToString()
+        == now_date.Month.ToString()).ToList();
+    decimal Salary_Parts = 0;
+    New_System.Models.Factory2Entities2 db = new New_System.Models.Factory2Entities2();
+    Layout = "~/Views/Shared/MainView.cshtml";
+
+}
+<table class="table">
+
+    @if (parts == null)
+    {
+        <tr>
+            <td></td>
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td colspan="4" style="text-align: center;
+        margin-left: 12px;
+        font-family: sans-serif;
+        font-size: 30px;
+        text-decoration:underline;
+        color:darkgray">
+                Parts
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Number of Pieces
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Inser Date
+            </th>
+        </tr>
+        foreach (var item in parts)
+        {
+
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Amount</td>
+                <td>@item.Price</td>
+                <td>@item.Inser_Date</td>
+            </tr>
+            {
+                Salary_Parts += Convert.ToDecimal(item.Price);
+            }
+        }
+    }
+    <tr>
+        <td colspan="4" style="text-align: center;
+        margin-left: 12px;
+        font-family: sans-serif;">
+            <strong>Total :</strong> @Salary_Parts
+        </td>
+    </tr>
+    @{
+        var Orders = db.orders.Where(s => s.GetOrder_Date.Value.Month == now_date.Month).ToList();
+        decimal total_Price_order = 0;
+
+    }
+    @if (Orders == null)
+    {
+        <tr>
+            <td></td>
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td colspan="4" style="text-align: center;
+        margin-left: 12px;
+        font-family: sans-serif;
+        font-size: 30px;
+        text-decoration:underline;
+        color:darkgray">
+                Orders
+            </td>
+        </tr>
+        <tr>
+            <th>User Name</th>
+            <th>Customer Adress</th>
+            <th>Price Order</th>
+            <th>Ordering Date</th>
+        </tr>
+        foreach (var item in Orders)
+        {
+            var OrderDetails = unit.DetailsOrderReprositry.GetAll().Where(s => s.OrderId == item.Id).ToList();
+            decimal price = 0;
+            foreach (var semi in OrderDetails)
+            {
+                price = price + Convert.ToDecimal(semi.Sum_Salary);
+            }
+            <tr>
+                <td>@item.AspNetUser.UserName</td>
+                <td>@item.CustomerSSn</td>
+                <td>@price</td>
+                <td>@item.GetOrder_Date</td>
+            </tr>
+            total_Price_order = total_Price_order + price;
+
+        }
+    }
+    <tr>
+        <td colspan="4" style="text-align: center;
+        margin-left: 12px;
+        font-family: sans-serif;">
+            <strong>Total Price :</strong> @total_Price_order
+        </td>
+    </tr>
+
+    @* Product *@
+    @{
+        var product_OutPut = unit.ProductOutPutReprositry.GetAll().Where(s => s.Isert_date.Value.Month
+         == now_date.Month).ToList();
+        decimal TotalPrice = 0;
+        foreach (var Pro in product_OutPut)
+        {
+            TotalPrice = Convert.ToDecimal(TotalPrice + Pro.Total_Salary);
+        }
+
+    }
+    @if (product_OutPut == null)
+    {
+        <tr>
+            <td></td>
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td colspan="4" style="text-align: center;
+        margin-left: 12px;
+        font-family: sans-serif;
+        font-size: 30px;
+        text-decoration:underline;
+        color:darkgray">
+                Product That Manufacture in the Factory
+            </td>
+        </tr>
+        <tr>
+            <th>Product Name</th>
+            <th>Amount</th>
+            <th>Total Price </th>
+            <th>Insert Date</th>
+        </tr>
+        foreach (var item in product_OutPut)
+        {
+            <tr>
+                <td>@item.Name_Product</td>
+                <td>@item.Amount</td>
+                <td>@item.Total_Salary</td>
+                <td>@item.Isert_date</td>
+            </tr>
+        }
+    }
+    <tr>
+        <td colspan="4" style="text-align: center;
+        margin-left: 12px;
+        font-family: sans-serif;">
+            <strong>Total Price :</strong> @TotalPrice
+        </td>
+    </tr>
+
+    @* All Materials in this Month *@
+    @{
+        var RawMaterails = unit.RawMaterialsReprositry.GetAll().Where(s => s.DateIsertion.Value.Month
+         == now_date.Month).ToList();
+        decimal Total_price_RawMaterials = 0;
+
+    }
+    @if (RawMaterails == null)
+    {
+        <tr>
+            <td></td>
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td colspan="4" style="text-align: center;
+        margin-left: 12px;
+        font-family: sans-serif;
+        font-size: 30px;
+        text-decoration:underline;
+        color:darkgray">
+                Materails That Insert in the Factory
+            </td>
+        </tr>
+        <tr>
+            <th>Product Name</th>
+            <th>Amount</th>
+            <th>Total Price </th>
+            <th>Insert Date</th>
+        </tr>
+        foreach (var item in RawMaterails)
+        {
+            Total_price_RawMaterials = Total_price_RawMaterials + Convert.ToDecimal(item.Salary * item.Amount);
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Amount</td>
+                <td>@item.Salary</td>
+                <td>@item.DateIsertion</td>
+            </tr>
+        }
+    }
+    <tr>
+        <td colspan="4" style="text-align: center;
+        margin-left: 12px;
+        font-family: sans-serif;">
+            <strong>Total Price :</strong> @Total_price_RawMaterials
+        </td>
+    </tr>
+    @* Input - Materails *@
+    @{
+        var Materails_input = unit.Input_MaterialsReprositry.GetAll().Where(s => s.Insert_date.Value.Month
+         == now_date.Month).ToList();
+        decimal Total_price_input_Materails = 0;
+
+    }
+    @if (Materails_input == null)
+    {
+        <tr>
+            <td></td>
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td colspan="4" style="text-align: center;
+        margin-left: 12px;
+        font-family: sans-serif;
+        font-size: 30px;
+        text-decoration:underline;
+        color:darkgray">
+                Materails That the Factory is Used it in Month @now_date.Month
+            </td>
+        </tr>
+        <tr>
+            <th>Product Name</th>
+            <th>Amount</th>
+            <th>Total Price </th>
+            <th>Insert Date</th>
+        </tr>
+        foreach (var item in Materails_input)
+        {
+            Total_price_input_Materails = Total_price_input_Materails + Convert.ToDecimal(item.Total_Price * item.Amount);
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Amount</td>
+                <td>@item.Total_Price</td>
+                <td>@item.Insert_date</td>
+            </tr>
+        }
+    }
+    <tr>
+        <td colspan="4" style="text-align: center;
+        margin-left: 12px;
+        font-family: sans-serif;">
+            <strong>Total Price :</strong> @Total_price_input_Materails
+        </td>
+    </tr>
+
+
+
+
+
+    @* Halks *@
+    @{
+        var halk = unit.HalksReprositry.GetAll().Where(s => s.Insert_date.Value.Month
+         == now_date.Month).ToList();
+        decimal Total_price_halk = 0;
+
+    }
+    @if (halk == null)
+    {
+        <tr>
+            <td></td>
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td colspan="4" style="text-align: center;
+        margin-left: 12px;
+        font-family: sans-serif;
+        font-size: 30px;
+        text-decoration:underline;
+        color:darkgray">
+                THe Halks that Used in the Factory
+            </td>
+        </tr>
+        <tr>
+            <th>Product Name</th>
+            <th>Total Price </th>
+            <th>Insert Date</th>
+        </tr>
+        foreach (var item in halk)
+        {
+            Total_price_halk = Total_price_halk + Convert.ToDecimal(item.Price);
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Insert_date</td>
+            </tr>
+        }
+    }
+    <tr>
+        <td colspan="4" style="text-align: center;
+        margin-left: 12px;
+        font-family: sans-serif;">
+            <strong>Total Price :</strong> @Total_price_halk
+        </td>
+    </tr>
+
+
+
+
+    @* Halks *@
+    @{
+        var Employees = unit.EmployeeReprositry.GetAll();
+        var Total_price_Employee = unit.EmployeeReprositry.GetAll().Sum(s => s.Salary);
+
+    }
+    @if (Employees == null)
+    {
+        <tr>
+            <td></td>
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td colspan="4" style="text-align: center;
+        margin-left: 12px;
+        font-family: sans-serif;
+        font-size: 30px;
+        text-decoration:underline;
+        color:darkgray">
+                The Salary Of Employee In the Factory
+            </td>
+        </tr>
+        <tr>
+            <th>First Name</th>
+            <th>Last name </th>
+            <th>Department name </th>
+            <th> THe Salary</th>
+        </tr>
+        foreach (var item in Employees)
+        {
+            <tr>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Department.Name</td>
+                <td>@item.Salary</td>
+            </tr>
+        }
+    }
+    <tr>
+        <td colspan="4" style="text-align: center;
+        margin-left: 12px;
+        font-family: sans-serif;">
+            <strong>Total Price :</strong> @Total_price_Employee
+        </td>
+    </tr>
+
+</table>

@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Factory2ModelStoreContainer" CdmEntityContainer="Factory2Entities2">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="Factory2Model.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="Factory2Model.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="Factory2Model.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="Factory2Model.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserRoles">
+      <EntityTypeMapping TypeName="Factory2Model.AspNetUserRole">
+        <MappingFragment StoreEntitySet="AspNetUserRoles">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="message" ColumnName="message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Factory2Model.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carts">
+      <EntityTypeMapping TypeName="Factory2Model.Cart">
+        <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="product_ID" ColumnName="product_ID" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="Factory2Model.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+          <ScalarProperty Name="Acount" ColumnName="Acount" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="Factory2Model.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="Factory2Model.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="telepone_number" ColumnName="telepone_number" />
+          <ScalarProperty Name="emp_Id" ColumnName="emp_Id" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Halks">
+      <EntityTypeMapping TypeName="Factory2Model.Halk">
+        <MappingFragment StoreEntitySet="Halks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Insert_date" ColumnName="Insert_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Input_Materails">
+      <EntityTypeMapping TypeName="Factory2Model.Input_Materails">
+        <MappingFragment StoreEntitySet="Input_Materails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Total_Price" ColumnName="Total_Price" />
+          <ScalarProperty Name="Insert_date" ColumnName="Insert_date" />
+          <ScalarProperty Name="IdMaterials" ColumnName="IdMaterials" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="Factory2Model.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="product_Id" ColumnName="product_Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="ProductSalary" ColumnName="ProductSalary" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Sum_Salary" ColumnName="Sum_Salary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orders">
+      <EntityTypeMapping TypeName="Factory2Model.order">
+        <MappingFragment StoreEntitySet="orders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="CustomerSSn" ColumnName="CustomerSSn" />
+          <ScalarProperty Name="GetOrder_Date" ColumnName="GetOrder_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OutPutOfProducts">
+      <EntityTypeMapping TypeName="Factory2Model.OutPutOfProduct">
+        <MappingFragment StoreEntitySet="OutPutOfProduct">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name_Product" ColumnName="Name_Product" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Total_Salary" ColumnName="Total_Salary" />
+          <ScalarProperty Name="Isert_date" ColumnName="Isert_date" />
+          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="parts">
+      <EntityTypeMapping TypeName="Factory2Model.part">
+        <MappingFragment StoreEntitySet="part">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Inser_Date" ColumnName="Inser_Date" />
+          <ScalarProperty Name="DateIsertion" ColumnName="DateIsertion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="Factory2Model.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="DateIsertion" ColumnName="DateIsertion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Raw_Materials">
+      <EntityTypeMapping TypeName="Factory2Model.Raw_Materials">
+        <MappingFragment StoreEntitySet="Raw_Materials">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Sup_Id" ColumnName="Sup_Id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="DateIsertion" ColumnName="DateIsertion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="Factory2Model.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+          <ScalarProperty Name="Acount" ColumnName="Acount" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_1">
+      <EntityTypeMapping TypeName="Factory2Model.Table_1">
+        <MappingFragment StoreEntitySet="Table_1">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fhfgfh" ColumnName="fhfgfh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SelectAllCustomers" FunctionName="Factory2Model.Store.SelectAllCustomers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Factory2Model.SelectAllCustomers_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="product_Id" ColumnName="product_Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="ProductSalary" ColumnName="ProductSalary" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Sum_Salary" ColumnName="Sum_Salary" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

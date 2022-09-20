@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Treasury";
+    Layout = "~/Views/Shared/MainView.cshtml";
+    New_System.Reprositry.UnitOfWork unit
+= new New_System.Reprositry.UnitOfWork();
+}
+<script src="~/Scripts/Khaled.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<h2>Treasury</h2>
+@{
+    var now_date = DateTime.Now;
+    var parts = unit.PartReprositry.GetAll()
+        .Where(s => s.Inser_Date.Value.Month.ToString()
+        == now_date.Month.ToString()).ToList();
+    var PartSalry = unit.PartReprositry.GetAll().ToList().Where(s => s.Inser_Date.Value.Month == now_date.Month).Sum(s => s.Price);
+    var ordering = unit.OrderReprositry.GetAll().Where(s => s.GetOrder_Date.Value.Month == now_date.Month).ToList();
+    decimal total_Price_order = 0;
+    foreach (var item in ordering)
+    {
+        var Specific_Order = unit.DetailsOrderReprositry.GetAll().Where(s => s.OrderId == item.Id).ToList();
+        foreach (var Specific in Specific_Order)
+        {
+            total_Price_order += Convert.ToDecimal(Specific.Sum_Salary);
+        }
+    }
+    decimal Products_Salary = Convert.ToDecimal(unit.ProductOutPutReprositry.GetAll()
+        .Where(s => s.Isert_date.Value.Month.ToString() == now_date.Month.ToString())
+        .Sum(s => s.Total_Salary));
+    decimal Materails_Salary = Convert.ToDecimal(unit.Input_MaterialsReprositry.GetAll()
+        .Where(s => s.Insert_date.Value.Month.ToString() == now_date.Month.ToString())
+        .Sum(s => s.Total_Price));
+    decimal Halks_Price = Convert.ToDecimal(unit.HalksReprositry.GetAll()
+        .Where(s => s.Insert_date.Value.Month.ToString() == now_date.Month.ToString())
+        .Sum(s => s.Price));
+    decimal Employees_Price = Convert.ToDecimal(unit.EmployeeReprositry.GetAll()
+        .Sum(s => s.Salary));
+}
+<table class="table table-dark table-hover" style="background-color: #808080">
+    <caption style="text-align:center">The Treasury About Month :<strong style="text-decoration:underline">@DateTime.Now.Month</strong></caption>
+    <tr>
+        <th> Name </th>
+        <th>Input</th>
+        <th>Out Put</th>
+    </tr>
+    <tr>
+        <td>Parts</td>
+        <td>@PartSalry</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Orders</td>
+        <td></td>
+        <td>@total_Price_order</td>
+    </tr>
+    <tr>
+        <td>OutProductsOf Factory</td>
+        <td></td>
+        <td>
+            @Products_Salary
+            @*<pre style="width:50%">this is the salary of products that manufact in this month only</pre>*@
+        </td>
+    </tr>
+    <tr>
+        <td> Materials </td>
+        <td>@Materails_Salary</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> Halks  </td>
+        <td>@Halks_Price</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> Employees  </td>
+        <td>@Employees_Price</td>
+        <td></td>
+    </tr>
+</table>
+<!-- Info message -->
+<a class="btn btn-info" id="btMoney">Money In Treasury</a>
+<!-- Warning message -->
+<a class="btn btn-warning" id="btPassword">Password Treasury</a>
+
+@{
+    decimal All_Price = Convert.ToDecimal(PartSalry + Employees_Price + Halks_Price + Materails_Salary);
+    decimal Price_Tressuary = Convert.ToDecimal(total_Price_order - All_Price);
+}
+<div class="alert alert-light alert-dismissible" id="Money" hidden>
+    <strong>
+        Money in Treasury
+        @if (Price_Tressuary > 0)
+        {
+            <span> is : @Price_Tressuary</span>
+        }
+        else
+        {
+            <span> is : 0</span>
+        }
+    </strong>
+</div>
+<div class="alert alert-light alert-dismissible" id="Password" hidden>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Password of Treasury is : </strong> jkhaled497@gmail.com
+</div>
+

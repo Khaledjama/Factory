@@ -1,0 +1,45 @@
+﻿@model  New_System.Models.ConfigurationSettings
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+<h2>Concat With Admine</h2>
+<div class="container">
+    <p> Plese Fill The Form</p>
+    <form action="@Url.Action("Admine","Home")" class="was-validated" name="myForm">
+        <div class="form-group">
+            <label for="uname">User Name: </label>
+            <input type="text" class="form-control" id="uname" placeholder="Enter Your Name" name="uname" required>
+        </div>
+        <div class="form-group">
+            <label for="uname">Adress : </label>
+            <input type="text" class="form-control" id="uname" placeholder="Enter Your Adress" name="uname" required>
+        </div>
+        <div class="form-group">
+            <label for="uname">What's up Number : </label>
+            <input type="text" class="form-control" id="uname" placeholder="Enter Your What's Up Number" name="uname" required>
+        </div>
+        
+        <div class="form-group form-check">
+            <label for="uname">Your Problem </label>
+            <br />
+            <label class="form-check-label">
+                <textarea id="form15" class="md-textarea form-control" placeholder="Please Write Describtion for your Problem" rows="5" cols="150"></textarea>
+            </label>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Send" id="reset-btn">
+        @if (ViewBag.Message != null)
+        {
+            <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+            </script>
+
+        }
+    </form>
+</div>

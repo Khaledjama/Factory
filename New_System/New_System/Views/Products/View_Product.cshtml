@@ -1,0 +1,73 @@
+﻿@model New_System.Models.Product
+
+@{
+    ViewBag.Title = "View_Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div @*class="modal" id="myModal"*@>
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                @if (Session["M"] != null)
+                {
+                    <div class="alert alert-success">
+                        <strong>Secondary!</strong> @Session["M"]
+                    </div>
+                }
+                <a href="~/Products/Index2" class="close" data-dismiss="modal">
+                    &times;
+                </a>
+            </div>
+
+            <!-- Modal body -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 ">
+                        <div class="modal-body">
+
+                            <form method="post" action="@Url.Action("Add", "Bills")">
+                                <input type="number" name="ID" id="ID" hidden value="@Model.Id" />
+                                <label for="product Name ">Product Name :</label>
+                                <input type="text" class="form-control" id="text1" name="Name" value="@Model.Name" readonly>
+
+
+                                <label for="Type">Type:</label>
+                                <input type="text" class="form-control" id="text2" name="Type" value="@Model.Type" readonly>
+
+
+                                <label for="Salary">Salary:</label>
+                                <input type="text" class="form-control" id="number" name="Salary" value="@Model.Salary" readonly>
+
+
+                                <label for="Salary">Amount:</label>
+                                <input type="number" class="form-control" id="number" name="Amount" required>
+                                <br />
+                                <button type="submit" class="btn btn-primary" id="Add">Add To Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 ">
+                        <br />
+                        <img src="@Url.Content(Model.Image)" height="230" width="250" />
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" style="color:cornsilk" onclick="location.href='@Url.Action("List_product", "Products")'" >Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+

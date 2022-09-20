@@ -1,0 +1,51 @@
+﻿@model IEnumerable<New_System.Models.OrderDetails>
+
+@{
+    ViewBag.Title = "GetMyOrderDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    decimal SumSalary = 0;
+}
+
+<h2>GetMyOrderDetails</h2>
+<h2 style="text-align:center">Hello Mr /@ViewBag.CustomerUserName</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Product Name")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sum_Salary)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sum_Salary)
+            </td>
+            @{
+                SumSalary += Convert.ToDecimal(item.Sum_Salary);
+            }
+        </tr>
+    }
+
+</table>
+<h2 style="text-align:center">The Total Salary =@SumSalary</h2>

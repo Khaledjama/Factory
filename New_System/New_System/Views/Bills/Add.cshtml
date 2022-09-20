@@ -1,0 +1,73 @@
+﻿@model List<New_System.Models.Item>
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add</h2>
+@if (ViewBag.ss != null)
+{
+    <p style="color:brown">@ViewBag.ss</p>
+
+}
+
+@if ((List<New_System.Models.Item>)Session["cart"] == null)
+{
+    <p>You are no select any product</p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("Create New", "Index2", "Products")
+    </p>
+    <h3 style="text-align:center"> You Are Select</h3>
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Salary
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Amount
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in (List<New_System.Models.Item>)Session["cart"])
+        {
+            <tr>
+                <td>
+                    @item.product.Id
+                </td>
+                <td>
+                    @item.product.Name
+                </td>
+                <td>
+                    @item.product.Salary
+                </td>
+                <td>
+                    @item.product.Type
+                </td>
+                <td>
+                    @item.quantity
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.product.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.product.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+}

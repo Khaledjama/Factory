@@ -1,0 +1,81 @@
+﻿@*@model IEnumerable<New_System.Models.OrderDetails>*@
+@{
+    ViewBag.Title = "GetOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    decimal totalsalary = 0;
+}
+<h2>GetMyOrder</h2>
+<p style="text-align:center;"> Wellcom Mr @ViewBag.Name</p>
+@if ((List<New_System.Models.Item>)Session["cart"] == null)
+{
+    <h3 style="text-align:center">You are not Selected any product</h3>
+}
+
+else
+{
+
+    <table class="table">
+        <tr>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Product type
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Product salary
+            </th>
+            <th>
+                Sum salary
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in (List<New_System.Models.Item>)Session["cart"])
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.product.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.product.Salary)
+                </td>
+                <td>
+                    @{
+                        decimal salary;
+                        salary = Convert.ToDecimal(item.quantity * item.product.Salary);
+                    }
+                    @salary
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.product.Id })
+                </td>
+                @{
+
+                    totalsalary += Convert.ToDecimal(salary);
+                }
+            </tr>
+        }
+
+    </table>
+
+}
+<hr />
+<p style="text-align:center;">
+    the Total Salary of this Bill is = @totalsalary
+</p>
+<p>
+    <div> <a href="@Url.Action("Report", "Reports" ,new { id ="PDF"})">Print As Pdf</a></div>
+</p>
+<input type="button" value="Back to Home" onclick="location.href='@Url.Action("List_product", "Products",new { id="Delete"})'" />
+

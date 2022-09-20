@@ -1,0 +1,143 @@
+﻿@*@model New_System.Models.Product
+
+    @{
+        ViewBag.Title = "Details";
+    }
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>Product</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Salary)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Salary)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Type)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Type)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Size)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Size)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Content)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Content)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+
+            <dd>
+                <img class="card-img-top" src="@Url.Content(Model.Image)" alt="@Model.Name" style="height:150px; width:150px;">
+
+            </dd>
+
+
+
+        </dl>
+    </div>
+    <p>
+        @if (User.IsInRole("Admine"))
+        {
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+        }
+        @Html.ActionLink("Back to Home", "List_product")
+    </p>*@
+
+@model New_System.Models.Product
+
+@{
+    ViewBag.Title = "View_Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div @*class="modal" id="myModal"*@ style="font-weight:bold">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Product Details</h4>
+
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <img src="@Url.Content(Model.Image)" style="width:50% ; height:50% ;margin-left:auto ; margin-right:auto ; display:block" />
+                    <br />
+                    <div style="background-color: #22222294">
+                        <table class="table table-dark table-hover" >
+                            <thead>
+                                <tr>
+                                    <th>Product Componnent</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody >
+                                <tr>
+                                    <td>Name</td>
+                                    <td>@Model.Name</td>
+                                </tr>
+                                <tr>
+                                    <td>Type </td>
+                                    <td>@Model.Type</td>
+                                </tr>
+                                <tr>
+                                    <td>Size </td>
+                                    <td>@Model.Size Cm</td>
+                                </tr>
+                                <tr>
+                                    <td>Components</td>
+                                    <td>@Model.Content</td>
+                                </tr>
+                                <tr>
+                                    <td>Salary </td>
+                                    <td>@Model.Salary</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="location.href='@Url.Action("Index2", "Products")'" >Close Me</button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+

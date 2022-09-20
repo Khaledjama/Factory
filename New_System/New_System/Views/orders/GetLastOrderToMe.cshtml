@@ -1,0 +1,58 @@
+﻿@model IEnumerable<New_System.Models.OrderDetail>
+
+@{
+    ViewBag.Title = "GetLastOrderToMe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    decimal SumSalary = 0;
+}
+
+<h2>GetLastOrderToMe</h2>
+
+
+@if (ViewBag.Message != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Sum_Salary)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductSalary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sum_Salary)
+                </td>
+                @{
+                    SumSalary += Convert.ToDecimal(item.Sum_Salary);
+                }
+            </tr>
+        }
+
+    </table>
+    <h2 style="text-align:center">The total Salary for this order is =@SumSalary</h2>
+}
+<h1>
+    @ViewBag.ErrorMessage
+</h1>

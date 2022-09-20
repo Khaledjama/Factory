@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <!-- potstrap Calling -->
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="mainlayout">
+        
+        <div class="left">
+            <div class="sidebar-container">
+                <div class="sidebar-logo">
+                    Admin DashPoard
+                </div>
+                <ul class="sidebar-navigation">
+                    <li class="header">Pepole</li>
+                    <li>
+                        <a href="@Url.Action("Index","Customers")">
+                            <i class="fa fa-home" aria-hidden="true"></i> Customers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Suppliers")">
+                            <i class="fa fa-home" aria-hidden="true"></i> Suppliers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Employees")">
+                            <i class="fa fa-home" aria-hidden="true"></i> Employees
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Departments")">
+                            <i class="fa fa-home" aria-hidden="true"></i> Departments
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","AspNetRoles")">
+                            <i class="fa fa-home" aria-hidden="true"></i> Admins
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","AspNetUserRoles")">
+                            <i class="fa fa-home" aria-hidden="true"></i> Admin Roles
+                        </a>
+                    </li>
+                    <li class="header">Input OutPut</li>
+                    <li>
+                        <a href="@Url.Action("Index","parts")">
+                            <i class="fa fa-users" aria-hidden="true"></i> Parts
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Raw_Materials")">
+                            <i class="fa fa-users" aria-hidden="true"></i> Matersails
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Input_Materails")">
+                            <i class="fa fa-users" aria-hidden="true"></i> Input matersails
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Products")">
+                            <i class="fa fa-users" aria-hidden="true"></i> Products
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","OutPutOfProducts")">
+                            <i class="fa fa-users" aria-hidden="true"></i> OutPut Products
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Halks")">
+                            <i class="fa fa-users" aria-hidden="true"></i> Halks
+                        </a>
+                    </li>
+                    <li class="header">Managment</li>
+                    <li>
+                        <a href="@Url.Action("Index","StockManagments")">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i> StockManagment
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Treasury","StockManagments")">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i> Treasury
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("List_Product","Products")">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i> Main Page
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-container">
+
+            <div class="container-fluid">               
+                    @RenderBody()
+
+                </div>
+
+            </div>
+        </div>
+    <!--/.Footer-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    </body>
+</html>
+

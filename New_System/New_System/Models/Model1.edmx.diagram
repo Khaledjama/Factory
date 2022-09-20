@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f21ee84d087441ff8de6f849cd07dc69" Name="Diagram1">
+        <EntityTypeShape EntityType="Factory2Model.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.AspNetRole" Width="1.5" PointX="4.5" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.AspNetUserClaim" Width="1.5" PointX="3.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.AspNetUserLogin" Width="1.5" PointX="3.75" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.AspNetUserRole" Width="1.5" PointX="6.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.AspNetUser" Width="1.5" PointX="1.5" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.Cart" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.Customer" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.Department" Width="1.5" PointX="7.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.Employee" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.Halk" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.Input_Materails" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.OrderDetail" Width="1.5" PointX="6" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.order" Width="1.5" PointX="3.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.OutPutOfProduct" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.part" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.Product" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.Raw_Materials" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.Supplier" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Factory2Model.Table_1" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="Factory2Model.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK_orders_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK_Cart_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK__Employee__emp_Id__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK__Employee__emp_Id__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK__Employee__emp_Id__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK__Input_Mat__IdMat__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK__Input_Mat__IdMat__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK__Input_Mat__IdMat__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK_OrderDetails_orders" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK_OrderDetails_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK__OutPutOfP__Id_Pr__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK__OutPutOfP__Id_Pr__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK__OutPutOfP__Id_Pr__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK__Raw_Mater__Sup_I__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK__Raw_Mater__Sup_I__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="Factory2Model.FK__Raw_Mater__Sup_I__6B24EA82" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

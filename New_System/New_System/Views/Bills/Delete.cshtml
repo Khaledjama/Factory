@@ -1,0 +1,42 @@
+﻿@model New_System.Models.Item
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Bill</h4>
+    <hr />
+
+    @*@foreach (var item in (List<WebApplication4.Models.Item>)Session["cart"])
+        {
+        <dl class="dl-horizontal">
+            <dt>
+                id
+            </dt>
+
+            <dd>
+               @item.product.Id
+            </dd>
+
+        </dl>
+        }*@
+    <p>
+
+    </p>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

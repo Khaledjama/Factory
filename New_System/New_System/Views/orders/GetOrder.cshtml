@@ -1,0 +1,78 @@
+﻿@model IEnumerable<New_System.Models.OrderDetail>
+
+@{
+    ViewBag.Title = "GetOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    decimal totalsalary = 0;
+}
+
+<h2>GetOrder</h2>
+<form method="post" action="@Url.Action("GetOrder","Orders")">
+    <label for="date"> date of order</label>
+    <input type="date" name="date" id="date" required />
+    <input type="submit" value="Search" />
+</form>
+@if (ViewBag.alert != null)
+{
+    <script>
+        alert("you aren't make an order in this day")
+    </script>
+}
+@if (ViewBag.ss != null)
+{
+    <p style="text-align:center;"> Wellcom Mr @ViewBag.Name</p>
+
+    <table class="table">
+        <tr>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Product Type
+            </th>
+            <th>
+                Product Salary
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Sum Salary
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Salary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sum_Salary)
+                    @{
+
+                        totalsalary += Convert.ToDecimal(item.Sum_Salary);
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+    <hr />
+    <p style="text-align:center;">
+        the Total Salary of this Bill is = @totalsalary
+    </p>
+    <p>
+        <div> <a href="@Url.Action("Report" ,new { id ="PDF"})">Get PDF</a></div>
+    </p>
+}

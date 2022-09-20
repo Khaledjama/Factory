@@ -1,0 +1,74 @@
+﻿@model IEnumerable<New_System.Models.Product>
+
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<h2>Index2</h2>
+<div>
+    @using (Html.BeginForm("SearchByN_T", "Products", FormMethod.Get))
+    {
+        <label for="text">
+            Product Name:
+            <input type="text" id="email" placeholder="Product Name" name="Name">
+        </label>
+        <label for="pwd">
+            Product Type :
+            <input type="text" id="pwd" placeholder="Product Type" name="Type">
+        </label>
+        <input type="submit" value="Search" />
+    }
+
+</div>
+<br />
+<strong style="float:right"><a href="/Products/Index2">All My Product</a></strong>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                <img src="@Url.Content(item.Image)" height="80" width="80" />
+            </td>
+            <td>
+                <input type="button" value="Add To Cart" onclick="location.href='@Url.Action("View_Product", "Products",new { id=item.Id})'" />
+            </td>
+        </tr>
+    }
+
+</table>
+
+
